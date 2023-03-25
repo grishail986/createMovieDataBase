@@ -8,24 +8,20 @@ personalMovieDB = {
     privat: false
 }
 
-// let a = prompt('Один из последних просмотренных фильмов?', '')
-// let b = prompt('На сколько оцените его?', '')
-// let c = prompt('Один из последних просмотренных фильмов?', '')
-// let d = prompt('На сколько оцентите его?', '')
-
 let a
 let b
 
 for (i = 0; i < 2; i++) {
     a = prompt('Один из последних просмотренных фильмов?', '')
-    if (a == '' || a == null || a.length > 50) {
-        prompt('Один из последних просмотренных фильмов?', '')
-    }
     b = prompt('На сколько оцените его?', '')
-    if (b == '' || b == null || b.length > 50) {
-        prompt('На сколько оцените его?', '')
+
+    if (a != '' && b != '' && a != null && b != null && a.length < 50) {
+        personalMovieDB.movies[a] = b
+        console.log('done')
+    } else {
+        i--                     // уменьшаем счетчик на 1 
+        console.log('error')
     }
-    personalMovieDB.movies[a] = b
 }
 
 if (personalMovieDB.count < 10) {
@@ -38,17 +34,5 @@ if (personalMovieDB.count < 10) {
     alert('Произошла ошибка')
 
 }
-
-// i = 0 
-
-// while (i < 2) {
-//     a = prompt('Один из последних просмотренных фильмов?', '')
-//     b = prompt('На сколько оцените его?', '')
-//     personalMovieDB.movies[a] = b
-//     i = i + 1
-// }
-
-// personalMovieDB.movies[a] = b
-// personalMovieDB.movies[c] = d
 
 console.log(personalMovieDB)
